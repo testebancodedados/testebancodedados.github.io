@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+
+  function start(){
+  gapi.client.init({
+    'apiKey': 'AIzaSyCc_rH-pXdF4qezCyhS8p-SteT5VdVLtXI',
+    // Your API key will be automatically added to the Discovery Document URLs.
+    'discoveryDocs': ['https://people.googleapis.com/$discovery/rest'],
+    // clientId and scope are optional if auth is not required.
+    'clientId': '986658086334-jnj8r7umpvu9bu2b6gae01g9ksjocsdb.apps.googleusercontent.com',
+    'scope': 'https://www.googleapis.com/auth/documents',
+  })
+  }
+  gapi.load('client', start);
+</script>
+
+</html>
