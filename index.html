@@ -11,18 +11,30 @@
 </body>
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
-
-  function start(){
+function start() {
+  // 2. Initialize the JavaScript client library.
   gapi.client.init({
     'apiKey': 'AIzaSyCc_rH-pXdF4qezCyhS8p-SteT5VdVLtXI',
     // Your API key will be automatically added to the Discovery Document URLs.
     'discoveryDocs': ['https://people.googleapis.com/$discovery/rest'],
     // clientId and scope are optional if auth is not required.
     'clientId': '986658086334-jnj8r7umpvu9bu2b6gae01g9ksjocsdb.apps.googleusercontent.com',
-    'scope': 'https://www.googleapis.com/auth/documents',
-  })
-  }
-  gapi.load('client', start);
+    'scope': 'profile',
+  }).then(function() {
+    // 3. Initialize and make the API request.
+    return gapi.client.people.people.get({
+      'resourceName': 'people/me',
+      'requestMask.includeField': 'person.names'
+    });
+  }).then(function(response) {
+    console.log(response.result);
+  }, function(reason) {
+    console.log('Error: ' + reason.result.error.message);
+  });
+};
+// 1. Load the JavaScript client library.
+gapi.load('client', start);
 </script>
 
 </html>
+
