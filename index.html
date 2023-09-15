@@ -110,6 +110,7 @@
        */
       function handleSignoutClick() {
         const token = gapi.client.getToken();
+        console.log(token.access_token);
         if (token !== null) {
           google.accounts.oauth2.revoke(token.access_token);
           gapi.client.setToken('');
